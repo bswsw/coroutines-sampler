@@ -47,3 +47,5 @@ ui가 있는 애플리케이션의 메인스레드 사용을 위함. 특정 의�
 
 
 ## 코루틴 디버깅 하기
+
+https://www.jetbrains.com/help/idea/debug-kotlin-coroutines.html
