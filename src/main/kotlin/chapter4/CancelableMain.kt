@@ -25,9 +25,3 @@ fun check(job: Job) = when (Triple(job.isActive, job.isCancelled, job.isComplete
     Triple(false, true, true) -> "cancelled"
     else -> "unknown"
 }
-
-suspend fun myFunction() {
-    println("before")
-    delay(1000)
-    println("after")
-}
