@@ -1,4 +1,4 @@
-package chpater3
+package chapter3
 
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.ExperimentalCoroutinesApi
