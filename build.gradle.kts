@@ -18,6 +18,10 @@ dependencies {
     implementation("io.github.oshai:kotlin-logging-jvm:5.1.0")
     implementation("ch.qos.logback:logback-classic:1.4.12")
 
+    implementation(platform("io.arrow-kt:arrow-stack:1.2.4"))
+    implementation("io.arrow-kt:arrow-core")
+    implementation("io.arrow-kt:arrow-fx-coroutines")
+
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:${kotlinVersion}")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-debug:1.4.0")
     testImplementation(kotlin("test"))

@@ -23,8 +23,10 @@ fun main() = runBlocking {
         logger.info { "launch" }
     }
 
-    val result = listOf(deferred1, deferred2).awaitAll()
-    job.join()
+//    val result = listOf(deferred1, deferred2).awaitAll()
+//    job.join()
+//
+//    logger.info { result }
 
-    logger.info { result }
+    delay(10000)
 }
