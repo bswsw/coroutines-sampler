@@ -9,7 +9,5 @@ fun main() = runBlocking {
         }
 
         throw CancellationException()
-
-        TimeoutCancellationException("TimeoutCancellationException")
     }
 }
