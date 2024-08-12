@@ -59,3 +59,51 @@ fun main() = runBlocking<Unit> {
 ```
 
 속도 비교: AtomicInteger < Mutex < Actor < 싱글스레드풀
+
+
+## CoroutineStart.UNDISPATCHED vs Dispatchers.Unconfined
+
+실행: 둘다 코루틴 빌더를 호출한 스레드에서 실행된다.
+재개
+- CoroutineStart.UNDISPATCHED: 코루틴이 실행된 스레드에서 재개된다.
+- Dispatchers.Unconfined: 자신을 재개시킨 스레드에서 동작한다.
+
+무제한 디스패처는 재개되는 스레드를 예측하기 어렵기 대문에 비동기 작업이 불안해질 수 있다.
+
+
+### Continuation 
+
+```kotlin
+fun main() = runBlocking {
+    val handler = CoroutineExceptionHandler { ctx, ex ->
+        println("예외발생: ${ex}")
+    }
+
+    val job = launch(Job() + handler) {
+        println("before launch")
+
+        suspendCancellableCoroutine<Unit> {
+            it.resume(Unit)
+        }
+
+        try {
+            suspendCancellableCoroutine<Unit> {
+                it.resumeWithException(RuntimeException("error"))
+            }
+        } catch (e: Exception) {
+            println("[catch] ${e.message}")
+        }
+
+        suspendCancellableCoroutine<Unit> {
+            it.resumeWithException(RuntimeException("error"))
+        }
+
+        val str = suspendCancellableCoroutine {
+            it.resume("hello-world")
+        }
+        println(str)
+
+        println("after")
+    }
+}
+```
