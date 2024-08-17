@@ -1,0 +1,14 @@
+package chapter12
+
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+
+class RepeatAddUseCase {
+    suspend fun add(repeatTimes: Int) = withContext(Dispatchers.Default) {
+        var result = 0
+        repeat(repeatTimes) {
+            result += 1
+        }
+        result
+    }
+}

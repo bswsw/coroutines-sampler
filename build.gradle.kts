@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.9.23"
+    kotlin("jvm") version "2.0.10"
 }
 
 group = "org.example"
@@ -16,7 +16,7 @@ dependencies {
 //    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:${kotlinVersion}")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-debug:${kotlinVersion}")
     implementation("io.github.oshai:kotlin-logging-jvm:5.1.0")
-    implementation("ch.qos.logback:logback-classic:1.4.12")
+    implementation("ch.qos.logback:logback-classic:1.4.14")
 
     implementation(platform("io.arrow-kt:arrow-stack:1.2.4"))
     implementation("io.arrow-kt:arrow-core")
